@@ -1,0 +1,177 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.ashif.microcorpusclient.fragments.AddConnectionFragment">
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="#ffffff"
+            >
+
+            <TextView
+                android:id="@+id/add_form_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="5dp"
+                android:text="Add Customer Details"
+                android:textSize="28sp"
+                android:typeface="serif" />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Customer ID"
+                android:inputType="text"
+                android:id="@+id/textCustomerID"
+                />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Customer Type"
+                android:inputType="number"
+                android:id="@+id/textCustomerFirstName"
+                />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Customer Name"
+                android:inputType="textPersonName"
+                android:id="@+id/textCustomerLastName"
+                />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Guardian Name"
+                android:id="@+id/textfathername"
+                android:inputType="textEmailAddress" />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Username"
+                android:id="@+id/TextUsername"
+                android:inputType="text" />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Password"
+                android:id="@+id/TextPassword"
+                android:inputType="text" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Date of Connection(dd/mm/yy)"
+                android:id="@+id/textdoc"
+                android:inputType="date" />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Date of Due(dd/mm/yy)"
+                android:id="@+id/textdod"
+                android:inputType="date" />
+
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Mobile No"
+                android:id="@+id/Textmob"
+                android:inputType="number" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Connected By(empID)"
+                android:id="@+id/TextCustomerCreatedBy"
+                android:inputType="text" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Initial Amount"
+                android:id="@+id/TextInitialAmount"
+                android:inputType="number" />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Installment Amount"
+                android:id="@+id/TextInstallmentAmount"
+                android:inputType="number" />
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:hint="Total Payment"
+                android:id="@+id/TextInstallmentType"
+                android:inputType="number" />
+
+            <!--<EditText-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:backgroundTint="@color/colorPrimaryDark"-->
+                <!--android:hint="Outstanding Amount"-->
+                <!--android:id="@+id/TextOutstandingAmount"-->
+                <!--android:inputType="number" />-->
+           <!-- -->
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:gravity="top"
+                android:hint="Address"
+                android:id="@+id/textCustomerAddress"
+                android:fitsSystemWindows="true"
+                android:breakStrategy="balanced"
+                android:inputType="textMultiLine"
+                android:singleLine="false"
+                android:padding="5dp" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorPrimaryDark"
+                android:elevation="4dp"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:text="Submit"
+                android:id="@+id/btnsubmit"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/AddEmployee" android:icon="@drawable/ic_account_circle_black_24dp"
+            android:title="Add Employee Details" />
+        <item android:id="@+id/ViewEmployee" android:icon="@drawable/ic_info_black_24dp"
+            android:title="View Employee Details" />
+        <item android:id="@+id/ViewCustomerDetails" android:icon="@drawable/ic_info_black_24dp"
+            android:title="View Customer Details" />
+        <item android:id="@+id/ViewCollectionRep" android:icon="@drawable/ic_description_black_24dp"
+            android:title="View Collection Reports" />
+        <item android:id="@+id/ViewConnectionRep" android:icon="@drawable/ic_description_black_24dp"
+            android:title="View Connection Reports" />
+
+    </group>
+    <group android:checkableBehavior="single">
+    <item android:title="Employee Connection">
+        <menu>
+            <item android:id="@+id/AddCustomer" android:icon="@drawable/ic_account_circle_black_24dp"
+                android:title="Add Customer Details" />
+            <item android:id="@+id/AddCollectionDetails" android:icon="@drawable/ic_credit_card_black_24dp"
+                android:title="Add Collection Details" />
+            <item android:id="@+id/ViewCustomer" android:icon="@drawable/ic_shop_two_black_24dp"
+                android:title="View Connection Details" />
+            <item android:id="@+id/SetEMIAlert" android:icon="@drawable/ic_event_black_24dp"
+                android:title="Set EMI Date Alert" />
+        </menu>
+    </item>
+    </group>
+    <group android:checkableBehavior="single">
+    <item android:title="Customer Details">
+        <menu>
+            <item android:id="@+id/ViewCustomerInfo" android:icon="@drawable/ic_account_circle_black_24dp"
+                android:title="Customer Details" />
+            <item android:id="@+id/PaymentInfo" android:icon="@drawable/ic_credit_card_black_24dp"
+                android:title="Register a Complaint" />
+        </menu>
+    </item>
+</group>
+</menu>

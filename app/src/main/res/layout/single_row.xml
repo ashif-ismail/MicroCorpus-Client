@@ -1,0 +1,261 @@
+<android.support.v7.widget.CardView
+    android:id="@+id/card_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    android:elevation="3dp"
+    android:background="#ffffff"
+    card_view:cardCornerRadius="0dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools">
+
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/employeenametext"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:typeface="serif"
+        android:textColor="#000000"
+        android:paddingStart="15dp"
+        android:paddingLeft="15dp"
+        />
+    <ImageView
+        android:id="@+id/overflow"
+        android:layout_width="@dimen/ic_overflow_width"
+        android:layout_height="@dimen/ic_overflow_height"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_dots" />
+
+</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:paddingStart="25dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstNameText"
+            android:text="First Name : "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstNameDisplay"
+            android:text="name here"
+            android:layout_toRightOf="@+id/firstNameText"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingLeft="25dp"
+        android:paddingStart="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lastNameText"
+            android:text="Last Name : "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lastNameDisplay"
+            android:text="name here"
+            android:layout_toRightOf="@+id/lastNameText"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:paddingLeft="25dp"
+        android:paddingStart="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailText"
+            android:text="Email : "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailDisplay"
+            android:text="email here"
+            android:layout_toRightOf="@+id/emailText"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingLeft="25dp"
+        android:paddingStart="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dateofjointext"
+            android:text="Date of Join : "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dateofjoinDisplay"
+            android:text="date here"
+            android:layout_toRightOf="@+id/dateofjointext"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingLeft="25dp"
+        android:paddingStart="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/empidtext"
+            android:text="Emp ID : "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/empiddisplay"
+            android:text="empid here"
+            android:layout_toRightOf="@+id/empidtext"
+            />
+
+    </RelativeLayout>
+
+<RelativeLayout
+    android:paddingLeft="25dp"
+    android:paddingStart="25dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNameTextbox"
+        android:text="User Name : "
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNameDisplay"
+        android:text="user name here"
+        android:layout_toRightOf="@+id/userNameTextbox"
+        />
+
+</RelativeLayout>
+
+   <RelativeLayout
+       android:paddingLeft="25dp"
+       android:paddingStart="25dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/passwordbox"
+           android:text="Password : "
+           />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/passwordboxdisplay"
+           android:text="password here"
+           android:layout_toRightOf="@+id/passwordbox"
+           />
+
+   </RelativeLayout>
+
+   <RelativeLayout
+       android:paddingLeft="25dp"
+       android:paddingStart="25dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/empphoneText"
+           android:text="Phone Number : "
+           />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/empphonedisplay"
+           android:text="name here"
+           android:layout_toRightOf="@+id/empphoneText"/>
+
+   </RelativeLayout>
+
+   <RelativeLayout
+       android:paddingLeft="25dp"
+       android:paddingStart="25dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/addressText"
+           android:text="Address : "
+           />
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@+id/addressDisplay"
+           android:text="name here"
+           android:layout_toRightOf="@+id/addressText"
+           />
+
+   </RelativeLayout>
+
+  <RelativeLayout
+      android:paddingLeft="25dp"
+      android:paddingStart="25dp"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/qualificationText"
+          android:text="Qualification : "
+          />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/qDisplay"
+          android:text="name here"
+          android:layout_toRightOf="@+id/qualificationText"
+          />
+
+  </RelativeLayout>
+              </LinearLayout>
+
+</android.support.v7.widget.CardView>
+
+
+
+
+

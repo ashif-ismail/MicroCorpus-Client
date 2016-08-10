@@ -1,0 +1,118 @@
+<android.support.v7.widget.CardView
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    android:elevation="3dp"
+    android:background="#ffffff"
+    card_view:cardCornerRadius="0dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/coll_customerID"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:typeface="serif"
+                android:textColor="#000000"
+                android:paddingStart="15dp"
+                android:paddingLeft="15dp"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="25dp"
+            android:paddingStart="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/coll_customerIDtext"
+                android:text="Customer ID : "
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/coll_customerIDtextDisplay"
+                android:text="name here"
+                android:layout_toRightOf="@+id/coll_customerIDtext"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingLeft="25dp"
+            android:paddingStart="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/coll_amounttext"
+                android:text="Collection Amount : "
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/coll_amounttextdisplay"
+                android:text="name here"
+                android:layout_toRightOf="@+id/coll_amounttext"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:paddingLeft="25dp"
+            android:paddingStart="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/coll_collectedbytext"
+                android:text="Collected By : "
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/coll_collectedbytextdisplay"
+                android:text="email here"
+                android:layout_toRightOf="@+id/coll_collectedbytext"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:paddingLeft="25dp"
+            android:paddingStart="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/coll_doctext"
+                android:text="Date of Collection : "
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/coll_doctextdisplay"
+                android:text="date here"
+                android:layout_toRightOf="@+id/coll_doctext"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
