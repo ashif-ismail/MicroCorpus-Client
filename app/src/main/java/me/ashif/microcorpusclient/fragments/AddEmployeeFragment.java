@@ -52,6 +52,7 @@ public class AddEmployeeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setTitle("Add Employee");
         return inflater.inflate(R.layout.fragment_add_employee, container, false);
     }
 
@@ -71,12 +72,20 @@ public class AddEmployeeFragment extends Fragment {
         empQual = (EditText) getActivity().findViewById(R.id.textDegree);
         empAddress = (EditText) getActivity().findViewById(R.id.textAddress);
 
-        Button submitButton = (Button) getActivity().findViewById(R.id.btnsubmit);
+        final Button submitButton = (Button) getActivity().findViewById(R.id.btnsubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validateForms()) {
                     saveEmpDetails();
+                    submitButton.setEnabled(false);
+                    submitButton.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            clearForm();
+                            submitButton.setEnabled(true);
+                        }
+                    }, 10000);
                 } else
                     CommonMethods.displayToast("Some of the Information Required are Missing,Please verify and submit Again"
                             , getActivity());
@@ -136,6 +145,19 @@ public class AddEmployeeFragment extends Fragment {
             }
         };
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+//        clearForm();
+    }
+
+    private void clearForm() {
+        empAddress.setText("");
+        empEmailAdd.setText("");
+        empFirstName.setText("");
+        empID.setText("");
+        empJoinDate.setText("");
+        empPassword.setText("");
+        empLastName.setText("");
+        empPhone.setText("");
+        empQual.setText("");
     }
 
     private boolean validateForms() {

@@ -2,102 +2,46 @@
 <items version="2" >
 
     <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.1.1/jars/classes.jar"
+        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.3"
-        sha1="787871951412550519b0222aba3c9df4cea49875">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-21d40d6dcc420597d37d1e710753e5b4877cad6a.jar" />
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-599ffd298b66852189527c6cc19115932fe6e808.jar" />
     </item>
     <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jar="/home/almukthar/Android/Sdk/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
         jumboMode="false"
         revision="23.0.3"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-29aeac7fb30207032c8983d93d78783399997949.jar" />
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/support-annotations-23.1.1-1d65a0edadd8e481640bd67f97bb0f0ebf265da2.jar" />
     </item>
     <item
-        jar="/home/almukthar/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/24.1.1/3af19f153122737b372622fa6c81dd11a1c6b999/support-annotations-24.1.1.jar"
+        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
         jumboMode="false"
         revision="23.0.3"
-        sha1="3af19f153122737b372622fa6c81dd11a1c6b999">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/support-annotations-24.1.1-efb1c09aa061897236c5dc94ca87fd6200c83084.jar" />
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/internal_impl-23.1.1-f341858b5fbd58b1b2ca60e314973d44fd23d2e0.jar" />
     </item>
     <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.1.1/jars/classes.jar"
+        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.3"
-        sha1="f62e763609f65e47dc6c498760a4accf02776788">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-7979534b1d39f0b7db038a8ad983e8bd9b0c6933.jar" />
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-029ab37d33f00c15c2706c581f470770be76fa4c.jar" />
     </item>
     <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.1.1/jars/classes.jar"
+        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.3"
-        sha1="c936c1bd42f0c018c18920c7bec619ef056b24f8">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-74a212973a6292c77f69c034eb9f7c762b6748ba.jar" />
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-adc42c729fe0b5043d64df05b03c7d8d557c695d.jar" />
     </item>
     <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.github.clans/fab/1.6.4/jars/classes.jar"
+        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.borax12.materialdaterangepicker/library/1.6/jars/classes.jar"
         jumboMode="false"
         revision="23.0.3"
-        sha1="1c3b9743fe8bb166a90a7e98b9b9f1f8021d80cd">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-dd72103015e86d4c808d106d655a9c0976f87b73.jar" />
-    </item>
-    <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/libs/internal_impl-24.1.1.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="f78c2f395cb096f9dc1dc07e729922b8fcd3c4f5">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/internal_impl-24.1.1-48c9801e4b8987ee06a326deab7f4fbbb2842afe.jar" />
-    </item>
-    <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-80332fb7dfeb49ff430d2036f0523b2afd35bb96.jar" />
-    </item>
-    <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="6d7d803871e3203465f71a163e7af104f807b446">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-ec8c7b14a07887ae6c6780ad61b9f7efd8224bc2.jar" />
-    </item>
-    <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/me.zhanghai.android.materialprogressbar/library/1.1.7/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="1478a113f04bf0b679037b4f6bd88bd1837b96a3">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-e1d76daa2822bc1a9eba9f76ababf4b684ee8670.jar" />
-    </item>
-    <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.afollestad.material-dialogs/core/0.9.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="13c0b3f72c67721f9cf20d275bfc142b03cbbc7c">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-e84aec615943c41542716ab45e9c54a7c325c40a.jar" />
-    </item>
-    <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/libs/backendless.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="650b36d1c950bf95ca156c424ad53362a61b00db">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/backendless-0f649af63d3025e97fd763699806c8d0a6a76904.jar" />
-    </item>
-    <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="1256c10604bb098490eab070d76754ac5ceab35c">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-a10ff64c8978d0971ae074f9ffd7bdfb1a7fde3c.jar" />
-    </item>
-    <item
-        jar="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/exploded-aar/com.mcxiaoke.volley/library-aar/1.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.3"
-        sha1="e40b9a81989bd4a846018551c280f8c4d837bf2e">
-        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-15fbc7467170f1ae97b833a654d6e0e93169e310.jar" />
+        sha1="44873ba0b2bc950c80c480dc08e218e09f3239f1">
+        <dex dex="/home/almukthar/Desktop/MicroCorpusClient/app/build/intermediates/pre-dexed/release/classes-1424ea0a4bb569a76b90b2c086977e53473bad50.jar" />
     </item>
 
 </items>

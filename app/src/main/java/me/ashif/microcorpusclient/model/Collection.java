@@ -1,9 +1,11 @@
 package me.ashif.microcorpusclient.model;
 
+import java.util.Comparator;
+
 /**
  * Created by almukthar on 6/8/16.
  */
-public class Collection {
+public class Collection{
     private String customerID;
     private int collectionAmount;
     private String collectedBy;
@@ -40,4 +42,5 @@ public class Collection {
     public void setDateOfCollection(String dateOfCollection) {
         this.dateOfCollection = dateOfCollection;
     }
+
 }

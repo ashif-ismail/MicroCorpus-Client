@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity
             replaceFragment(fragment);
         } else if (id == R.id.SetEMIAlert) {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-            alertDialog.setMessage("Not Implemented Yet");
+            alertDialog.setMessage("This feature is yet to be implemented");
             alertDialog.setTitle("MicroCorpus Client");
             alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
@@ -174,7 +174,12 @@ public class MainActivity extends AppCompatActivity
                 }
             });
             alertDialog.show();
-        }else if (id == R.id.ViewCustomer) {
+        }
+        else if (id == R.id.ViewCollection){
+            Fragment fragment = new ViewCollectionFragment();
+            replaceFragment(fragment);
+        }
+        else if (id == R.id.ViewCustomer) {
             Fragment fragment = new ViewCustomerFragment();
             replaceFragment(fragment);
         }

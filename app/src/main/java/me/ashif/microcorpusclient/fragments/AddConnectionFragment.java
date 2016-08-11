@@ -49,6 +49,7 @@ public class AddConnectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setTitle("Add Connection");
         return inflater.inflate(R.layout.fragment_add_connection_details, container, false);
     }
 
@@ -78,12 +79,20 @@ public class AddConnectionFragment extends Fragment {
         password = (EditText) getActivity().findViewById(R.id.TextPassword);
         dod = (EditText) getActivity().findViewById(R.id.textdod);
 
-        Button submitButton = (Button) getActivity().findViewById(R.id.btnsubmit);
+        final Button submitButton = (Button) getActivity().findViewById(R.id.btnsubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validateForms()) {
                     saveConnection();
+                    submitButton.setEnabled(false);
+                    submitButton.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            clearForm();
+                            submitButton.setEnabled(true);
+                        }
+                    }, 10000);
                 } else
                     CommonMethods.displayToast("Some of the Information Required are Missing,Please verify and submit Again"
                             , getActivity());
@@ -148,7 +157,24 @@ public class AddConnectionFragment extends Fragment {
             }
         };
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+//        clearForm();
+    }
 
+    private void clearForm() {
+        customerID.setText("");
+        customerName.setText("");
+        customerType.setText("");
+        guardianName.setText("");
+        doc.setText("");
+        mobile.setText("");
+        connectedBy.setText("");
+        initialAmount.setText("");
+        installmentAmount.setText("");
+        totalPayment.setText("");
+        address.setText("");
+        username.setText("");
+        password.setText("");
+        dod.setText("");
     }
 
     private boolean validateForms() {

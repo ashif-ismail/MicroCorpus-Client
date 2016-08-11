@@ -47,6 +47,7 @@ public class AddCollectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setTitle("Add Collection");
         return inflater.inflate(R.layout.fragment_add_collection_details, container, false);
     }
 
@@ -59,12 +60,20 @@ public class AddCollectionFragment extends Fragment {
         collectionAmount = (EditText) getActivity().findViewById(R.id.textCollectionAmount);
         doc = (EditText) getActivity().findViewById(R.id.textCollectionDatePicker);
 
-        Button submitButton = (Button) getActivity().findViewById(R.id.btnsubmit);
+        final Button submitButton = (Button) getActivity().findViewById(R.id.btnsubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (validateForms()) {
                     saveCollection();
+                    submitButton.setEnabled(false);
+                    submitButton.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            clearForm();
+                            submitButton.setEnabled(true);
+                        }
+                    }, 10000);
                 } else
                     CommonMethods.displayToast("Some of the Information Required are Missing,Please verify and submit Again"
                             , getActivity());
@@ -72,6 +81,13 @@ public class AddCollectionFragment extends Fragment {
         });
 
         super.onActivityCreated(savedInstanceState);
+    }
+
+    private void clearForm() {
+        customerID.setText("");
+        employeeID.setText("");
+        collectionAmount.setText("");
+        doc.setText("");
     }
 
     private void saveCollection() {
@@ -94,7 +110,7 @@ public class AddCollectionFragment extends Fragment {
                 NetworkResponse response = error.networkResponse;
                 if(response != null && response.data != null){
                     switch(response.statusCode){
-                        case 403:
+                        case 400:
                             CommonMethods.displayToast("Access Forbidden", getActivity());
                             break;
                         case 500:
@@ -120,6 +136,7 @@ public class AddCollectionFragment extends Fragment {
             }
         };
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+//        clearForm();
 
     }
 

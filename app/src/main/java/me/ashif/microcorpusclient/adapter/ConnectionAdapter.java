@@ -41,7 +41,7 @@ public class ConnectionAdapter extends RecyclerView.Adapter<ConnectionAdapter.My
         holder.customerName.setText(connection.getCustomerName());
         holder.customerType.setText(String.valueOf(connection.getCustomerType()));
         holder.connectedBy.setText(connection.getConnectedBy());
-        holder.doc.setText(connection.getDoc());
+        holder.doc.setText(String.valueOf(connection.getDoc()));
         holder.address.setText(connection.getAddress());
     }
 

@@ -11,6 +11,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,5 +29,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:23.1.+'
     compile 'com.android.support:recyclerview-v7:23.1.+'
     compile 'com.github.clans:fab:1.6.4'
-    compile 'com.afollestad.material-dialogs:core:0.9.0.0'
+    compile 'com.borax12.materialdaterangepicker:library:1.6'
 }

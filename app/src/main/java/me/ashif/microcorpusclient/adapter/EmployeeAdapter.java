@@ -64,7 +64,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.MyView
         holder.firstname.setText(employee.getFirstName());
         holder.lastname.setText(employee.getLastName());
         holder.email.setText(employee.getEmail());
-        holder.doj.setText(employee.getDateOfJoin());
+        holder.doj.setText(String.valueOf(employee.getDateOfJoin()));
         holder.empID.setText(employee.getEmpID());
 //        holder.username.setText(employee.getUsername());
         holder.password.setText(employee.getPassword());

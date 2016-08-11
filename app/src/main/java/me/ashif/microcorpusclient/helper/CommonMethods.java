@@ -16,7 +16,7 @@ public class CommonMethods {
 
     public static void displayToast(String textToDisplay,Context context)
     {
-        Toast.makeText(context,textToDisplay,Toast.LENGTH_SHORT).show();
+        Toast.makeText(context,textToDisplay,Toast.LENGTH_LONG).show();
     }
 
 }

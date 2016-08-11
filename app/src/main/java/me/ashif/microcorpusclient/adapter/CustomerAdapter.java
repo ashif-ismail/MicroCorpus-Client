@@ -42,9 +42,9 @@ public class CustomerAdapter extends  RecyclerView.Adapter<CustomerAdapter.MyVie
         Customer customer = customerList.get(position);
         holder.customertitle.setText(customer.getCustomerName());
         holder.customerID.setText(customer.getCustomerID());
-        holder.dateofConn.setText(customer.getDateOfConn());
+        holder.dateofConn.setText(String.valueOf(customer.getDateOfConn()));
         holder.initialAmnt.setText(String.valueOf(customer.getInitialAmount()));
-        holder.dateOfDue.setText(customer.getDateOfDue());
+        holder.dateOfDue.setText(String.valueOf(customer.getDateOfDue()));
         holder.installmentAmnt.setText(String.valueOf(customer.getInstallmentAmount()));
         holder.totalAmnt.setText(String.valueOf(customer.getTotalAmount()));
         holder.customerType.setText(String.valueOf(customer.getCustomerType()));

@@ -21,8 +21,10 @@
                 android:title="Add Customer Details" />
             <item android:id="@+id/AddCollectionDetails" android:icon="@drawable/ic_credit_card_black_24dp"
                 android:title="Add Collection Details" />
-            <item android:id="@+id/ViewCustomer" android:icon="@drawable/ic_shop_two_black_24dp"
-                android:title="View Connection Details" />
+            <item android:id="@+id/ViewCustomer" android:icon="@drawable/ic_description_black_24dp"
+                android:title="View Connection Reports" />
+            <item android:id="@+id/ViewCollection" android:icon="@drawable/ic_description_black_24dp"
+                android:title="View Collection Reports" />
             <item android:id="@+id/SetEMIAlert" android:icon="@drawable/ic_event_black_24dp"
                 android:title="Set EMI Date Alert" />
         </menu>

@@ -43,7 +43,7 @@ public class CollectionAdapter extends RecyclerView.Adapter<CollectionAdapter.My
         holder.customerIDtitle.setText(collection.getCustomerID());
         holder.collectedBy.setText(collection.getCollectedBy());
         holder.collectionAmount.setText(String.valueOf(collection.getCollectionAmount()));
-        holder.doc.setText(collection.getDateOfCollection());
+        holder.doc.setText(String.valueOf(collection.getDateOfCollection()));
     }
 
     @Override
