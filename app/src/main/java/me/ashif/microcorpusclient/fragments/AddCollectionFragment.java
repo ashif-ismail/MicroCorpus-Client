@@ -16,7 +16,12 @@ import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
 import java.util.HashMap;
@@ -26,6 +31,7 @@ import me.ashif.microcorpusclient.R;
 import me.ashif.microcorpusclient.config.AppConfig;
 import me.ashif.microcorpusclient.config.AppController;
 import me.ashif.microcorpusclient.helper.CommonMethods;
+import me.ashif.microcorpusclient.model.Collection;
 
 
 /**
@@ -36,6 +42,7 @@ public class AddCollectionFragment extends Fragment {
     private static final String TAG = AddCollectionFragment.class.getSimpleName();
     EditText customerID,employeeID,collectionAmount,doc;
     public  int mStatusCode;
+    private String userName;
     private ProgressDialog progressDialog;
 
     public AddCollectionFragment() {
@@ -54,6 +61,10 @@ public class AddCollectionFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
+        Bundle bundle = this.getArguments();
+        if(bundle != null){
+            userName = bundle.getString("USER_NAME");
+        }
         progressDialog = new ProgressDialog(getActivity());
         customerID = (EditText) getActivity().findViewById(R.id.textCollectionID);
         employeeID = (EditText) getActivity().findViewById(R.id.textConnectionID);
@@ -70,7 +81,6 @@ public class AddCollectionFragment extends Fragment {
                     submitButton.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            clearForm();
                             submitButton.setEnabled(true);
                         }
                     }, 10000);
@@ -153,6 +163,7 @@ public class AddCollectionFragment extends Fragment {
             case HttpURLConnection.HTTP_OK:
                 //submission success
                 Toast.makeText(getActivity(), "Successfully Submitted the Information", Toast.LENGTH_SHORT).show();
+                clearForm();
                 break;
         }
     }

@@ -39,6 +39,7 @@ public class AddConnectionFragment extends Fragment {
     public  int mStatusCode;
     private ProgressDialog progressDialog;
     private static String userSuffix;
+    private String userName;
 
     public AddConnectionFragment() {
         // Required empty public constructor
@@ -55,12 +56,16 @@ public class AddConnectionFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-
         super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+
+        Bundle bundle = this.getArguments();
+        if(bundle != null){
+            userName = bundle.getString("USER_NAME");
+        }
 
         userSuffix = "cst_";
         progressDialog = new ProgressDialog(getActivity());
@@ -89,7 +94,6 @@ public class AddConnectionFragment extends Fragment {
                     submitButton.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            clearForm();
                             submitButton.setEnabled(true);
                         }
                     }, 10000);
@@ -194,6 +198,7 @@ public class AddConnectionFragment extends Fragment {
             case HttpURLConnection.HTTP_OK:
                 //submission success
                 Toast.makeText(getActivity(), "Successfully Submitted the Information", Toast.LENGTH_SHORT).show();
+                clearForm();
                 break;
         }
     }

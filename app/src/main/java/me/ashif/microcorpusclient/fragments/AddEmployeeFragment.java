@@ -82,7 +82,6 @@ public class AddEmployeeFragment extends Fragment {
                     submitButton.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            clearForm();
                             submitButton.setEnabled(true);
                         }
                     }, 10000);
@@ -175,6 +174,7 @@ public class AddEmployeeFragment extends Fragment {
             case HttpURLConnection.HTTP_OK:
                 //submission success
                 Toast.makeText(getActivity(), "Successfully Submitted the Information", Toast.LENGTH_SHORT).show();
+                clearForm();
                 break;
         }
     }

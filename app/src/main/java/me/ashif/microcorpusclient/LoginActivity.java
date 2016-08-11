@@ -142,6 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                 //login success
                 Intent mIntent = new Intent(LoginActivity.this,MainActivity.class);
                 mIntent.putExtra("USER_LEVEL",currentUserLevel);
+                mIntent.putExtra("USER_NAME",usernameText.getText().toString());
                 startActivity(mIntent);
                 finish();
                 break;

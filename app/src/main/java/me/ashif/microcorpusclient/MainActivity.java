@@ -11,9 +11,26 @@ package me.ashif.microcorpusclient;
         import android.support.v7.app.ActionBarDrawerToggle;
         import android.support.v7.app.AppCompatActivity;
         import android.support.v7.widget.Toolbar;
+        import android.util.Log;
         import android.view.Menu;
         import android.view.MenuItem;
 
+        import com.android.volley.NetworkResponse;
+        import com.android.volley.Request;
+        import com.android.volley.Response;
+        import com.android.volley.VolleyError;
+        import com.android.volley.toolbox.JsonArrayRequest;
+        import com.android.volley.toolbox.StringRequest;
+
+        import org.json.JSONArray;
+        import org.json.JSONException;
+        import org.json.JSONObject;
+
+        import java.util.HashMap;
+        import java.util.Map;
+
+        import me.ashif.microcorpusclient.config.AppConfig;
+        import me.ashif.microcorpusclient.config.AppController;
         import me.ashif.microcorpusclient.fragments.AddEmployeeFragment;
         import me.ashif.microcorpusclient.fragments.ViewCollectionFragment;
         import me.ashif.microcorpusclient.fragments.ViewConnectionFragment;
@@ -26,9 +43,12 @@ package me.ashif.microcorpusclient;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private String userLevel;
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private String userLevel,userName,empID;
     private NavigationView navigationView;
+    private Bundle bundle;
+    private int mStatusCode;
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +61,8 @@ public class MainActivity extends AppCompatActivity
         Menu nav_Menu = navigationView.getMenu();
 
         userLevel = getIntent().getStringExtra("USER_LEVEL");
+        userName = getIntent().getStringExtra("USER_NAME");
+
         CommonMethods.displayToast("Successfully Logged in as " + userLevel, MainActivity.this);
 
         //HIDE ALL OTHER IRRELAVENT OPTIONS FROM NAV-DRAWER BASED ON USER LEVEL
@@ -53,6 +75,7 @@ public class MainActivity extends AppCompatActivity
             nav_Menu.findItem(R.id.SetEMIAlert).setVisible(false);
             nav_Menu.findItem(R.id.ViewCustomerInfo).setVisible(false);
             nav_Menu.findItem(R.id.PaymentInfo).setVisible(false);
+            nav_Menu.findItem(R.id.ViewCollection).setVisible(false);
 
             Fragment fragment = new AddEmployeeFragment();
             replaceFragment(fragment);
@@ -136,32 +159,35 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.AddEmployee) {
-            Fragment fragment = new AddEmployeeFragment();
+            fragment = new AddEmployeeFragment();
             replaceFragment(fragment);
 
         } else if (id == R.id.ViewEmployee) {
-            Fragment fragment = new ViewEmployeeFragment();
+            fragment = new ViewEmployeeFragment();
             replaceFragment(fragment);
         }
         else if (id == R.id.ViewCustomerDetails){
-            Fragment fragment = new ViewCustomerFragment();
+            fragment = new ViewCustomerFragment();
             replaceFragment(fragment);
         }
         else if (id == R.id.ViewCollectionRep){
-            Fragment fragment = new ViewCollectionFragment();
+            fragment = new ViewCollectionFragment();
             replaceFragment(fragment);
         }
         else if (id == R.id.ViewConnectionRep){
-            Fragment fragment = new ViewConnectionFragment();
+            fragment = new ViewConnectionFragment();
             replaceFragment(fragment);
 
         }
         //second row
         else if (id == R.id.AddCustomer) {
-            Fragment fragment = new AddConnectionFragment();
+            bundle = new Bundle();
+            bundle.putString("USER_NAME",userName);
+            fragment = new AddConnectionFragment();
+            fragment.setArguments(bundle);
             replaceFragment(fragment);
         } else if (id == R.id.AddCollectionDetails) {
-            Fragment fragment = new AddCollectionFragment();
+            fragment = new AddCollectionFragment();
             replaceFragment(fragment);
         } else if (id == R.id.SetEMIAlert) {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
@@ -176,11 +202,11 @@ public class MainActivity extends AppCompatActivity
             alertDialog.show();
         }
         else if (id == R.id.ViewCollection){
-            Fragment fragment = new ViewCollectionFragment();
+            fragment = new ViewCollectionFragment();
             replaceFragment(fragment);
         }
         else if (id == R.id.ViewCustomer) {
-            Fragment fragment = new ViewCustomerFragment();
+            fragment = new ViewCustomerFragment();
             replaceFragment(fragment);
         }
 
@@ -196,4 +222,79 @@ public class MainActivity extends AppCompatActivity
         transaction.addToBackStack(null);
         transaction.commit();
     }
+    private void parseJSON(String endpoint) {
+        JsonArrayRequest requestReq = new JsonArrayRequest(endpoint,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.d(TAG, response.toString());
+                        // Parsing json
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+                                JSONObject obj = response.getJSONObject(i);
+                                empID = obj.getString("empID");
+                                bundle = new Bundle();
+                                bundle.putString("EMP_ID",empID);
+                                fragment.setArguments(bundle);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                CommonMethods.displayToast("Failed Retreiving Data,Please Try Again", getApplicationContext());
+
+            }
+        });
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(requestReq);
+    }
+    private void getIDfromUsername() {
+        //make a rest call to endpoint and set the text as empID
+        final String tag_string_req = "req_submit_emp";
+        final StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.ADD_COLLECTION_DETAILS, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d(TAG, "Submission Response: " + response.toString());
+                //parse the result json and set the empID text
+                parseJSON(AppConfig.GET_EMPLOYEE_DETAILS);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d(TAG, "Submission Error: " + error.getMessage());
+                NetworkResponse response = error.networkResponse;
+                if(response != null && response.data != null){
+                    switch(response.statusCode){
+                        case 400:
+                            CommonMethods.displayToast("Access Forbidden",getApplicationContext());
+                            break;
+                        case 500:
+                            CommonMethods.displayToast("Internal Server Error,Please Try again later", getApplicationContext());
+                    }
+                }
+            }
+        }) {
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                mStatusCode = response.statusCode;
+                return super.parseNetworkResponse(response);
+            }
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to submission endpoint
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("EmpUsername",userName);
+
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
+    }
+
 }
