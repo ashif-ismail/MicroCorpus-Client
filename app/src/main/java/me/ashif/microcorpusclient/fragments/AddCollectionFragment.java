@@ -42,7 +42,7 @@ public class AddCollectionFragment extends Fragment {
     private static final String TAG = AddCollectionFragment.class.getSimpleName();
     EditText customerID,employeeID,collectionAmount,doc;
     public  int mStatusCode;
-    private String userName;
+    private int empID;
     private ProgressDialog progressDialog;
 
     public AddCollectionFragment() {
@@ -63,11 +63,15 @@ public class AddCollectionFragment extends Fragment {
 
         Bundle bundle = this.getArguments();
         if(bundle != null){
-            userName = bundle.getString("USER_NAME");
+            empID = bundle.getInt("EMP_ID");
         }
+
         progressDialog = new ProgressDialog(getActivity());
         customerID = (EditText) getActivity().findViewById(R.id.textCollectionID);
         employeeID = (EditText) getActivity().findViewById(R.id.textConnectionID);
+        employeeID.setText(String.valueOf(empID));
+//        employeeID.setEnabled(false);
+
         collectionAmount = (EditText) getActivity().findViewById(R.id.textCollectionAmount);
         doc = (EditText) getActivity().findViewById(R.id.textCollectionDatePicker);
 
@@ -121,7 +125,7 @@ public class AddCollectionFragment extends Fragment {
                 if(response != null && response.data != null){
                     switch(response.statusCode){
                         case 400:
-                            CommonMethods.displayToast("Access Forbidden", getActivity());
+                            CommonMethods.displayToast("Error Occured", getActivity());
                             break;
                         case 500:
                             CommonMethods.displayToast("Internal Server Error,Please Try again later", getActivity());

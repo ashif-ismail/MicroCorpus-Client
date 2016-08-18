@@ -20,12 +20,14 @@ package me.ashif.microcorpusclient;
         import com.android.volley.Response;
         import com.android.volley.VolleyError;
         import com.android.volley.toolbox.JsonArrayRequest;
+        import com.android.volley.toolbox.JsonObjectRequest;
         import com.android.volley.toolbox.StringRequest;
 
         import org.json.JSONArray;
         import org.json.JSONException;
         import org.json.JSONObject;
 
+        import java.lang.reflect.Method;
         import java.util.HashMap;
         import java.util.Map;
 
@@ -44,11 +46,11 @@ package me.ashif.microcorpusclient;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = MainActivity.class.getSimpleName();
-    private String userLevel,userName,empID;
+    private static String userLevel,userName;
     private NavigationView navigationView;
-    private Bundle bundle;
-    private int mStatusCode;
+    private int mStatusCode,empID;
     private Fragment fragment;
+    private Bundle myBundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        myBundle = new Bundle();
+        getIDfromUsername();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         Menu nav_Menu = navigationView.getMenu();
@@ -90,6 +95,9 @@ public class MainActivity extends AppCompatActivity
             nav_Menu.findItem(R.id.ViewConnectionRep).setVisible(false);
             nav_Menu.findItem(R.id.ViewCustomerInfo).setVisible(false);
             nav_Menu.findItem(R.id.PaymentInfo).setVisible(false);
+
+            //getting empID from table
+            getIDfromUsername();
 
             Fragment fragment = new AddConnectionFragment();
             replaceFragment(fragment);
@@ -181,13 +189,12 @@ public class MainActivity extends AppCompatActivity
         }
         //second row
         else if (id == R.id.AddCustomer) {
-            bundle = new Bundle();
-            bundle.putString("USER_NAME",userName);
             fragment = new AddConnectionFragment();
-            fragment.setArguments(bundle);
+            fragment.setArguments(myBundle);
             replaceFragment(fragment);
         } else if (id == R.id.AddCollectionDetails) {
             fragment = new AddCollectionFragment();
+            fragment.setArguments(myBundle);
             replaceFragment(fragment);
         } else if (id == R.id.SetEMIAlert) {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
@@ -222,47 +229,23 @@ public class MainActivity extends AppCompatActivity
         transaction.addToBackStack(null);
         transaction.commit();
     }
-    private void parseJSON(String endpoint) {
-        JsonArrayRequest requestReq = new JsonArrayRequest(endpoint,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        Log.d(TAG, response.toString());
-                        // Parsing json
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject obj = response.getJSONObject(i);
-                                empID = obj.getString("empID");
-                                bundle = new Bundle();
-                                bundle.putString("EMP_ID",empID);
-                                fragment.setArguments(bundle);
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                CommonMethods.displayToast("Failed Retreiving Data,Please Try Again", getApplicationContext());
-
-            }
-        });
-
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(requestReq);
-    }
     private void getIDfromUsername() {
         //make a rest call to endpoint and set the text as empID
         final String tag_string_req = "req_submit_emp";
         final StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.ADD_COLLECTION_DETAILS, new Response.Listener<String>() {
+                AppConfig.GET_EMPID, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Submission Response: " + response.toString());
                 //parse the result json and set the empID text
-                parseJSON(AppConfig.GET_EMPLOYEE_DETAILS);
+                try{
+                    empID = Integer.parseInt(response.toString());
+                    myBundle.putInt("EMP_ID",empID);
+                }
+                catch (Exception ex){
+                    ex.printStackTrace();
+                }
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -272,7 +255,7 @@ public class MainActivity extends AppCompatActivity
                 if(response != null && response.data != null){
                     switch(response.statusCode){
                         case 400:
-                            CommonMethods.displayToast("Access Forbidden",getApplicationContext());
+                            CommonMethods.displayToast("HTTP BAD Request",getApplicationContext());
                             break;
                         case 500:
                             CommonMethods.displayToast("Internal Server Error,Please Try again later", getApplicationContext());
@@ -289,8 +272,7 @@ public class MainActivity extends AppCompatActivity
             protected Map<String, String> getParams() {
                 // Posting parameters to submission endpoint
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("EmpUsername",userName);
-
+                params.put("username",userName);
                 return params;
             }
         };

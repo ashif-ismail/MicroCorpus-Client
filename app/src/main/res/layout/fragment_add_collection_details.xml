@@ -35,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimaryDark"
                 android:hint="Employee ID"
-                android:enabled="false"
                 android:inputType="text"
                 android:id="@+id/textConnectionID"
                 />

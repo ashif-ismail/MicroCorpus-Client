@@ -39,7 +39,7 @@ public class AddConnectionFragment extends Fragment {
     public  int mStatusCode;
     private ProgressDialog progressDialog;
     private static String userSuffix;
-    private String userName;
+    private int empID;
 
     public AddConnectionFragment() {
         // Required empty public constructor
@@ -55,18 +55,11 @@ public class AddConnectionFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-
         Bundle bundle = this.getArguments();
         if(bundle != null){
-            userName = bundle.getString("USER_NAME");
+            empID = bundle.getInt("EMP_ID");
         }
-
         userSuffix = "cst_";
         progressDialog = new ProgressDialog(getActivity());
         customerID = (EditText) getActivity().findViewById(R.id.textCustomerID);
@@ -76,6 +69,8 @@ public class AddConnectionFragment extends Fragment {
         doc = (EditText) getActivity().findViewById(R.id.textdoc);
         mobile = (EditText) getActivity().findViewById(R.id.Textmob);
         connectedBy = (EditText) getActivity().findViewById(R.id.TextCustomerCreatedBy);
+        connectedBy.setText(String.valueOf(empID));
+//        connectedBy.setEnabled(false);
         initialAmount = (EditText) getActivity().findViewById(R.id.TextInitialAmount);
         installmentAmount = (EditText) getActivity().findViewById(R.id.TextInstallmentAmount);
         totalPayment = (EditText) getActivity().findViewById(R.id.TextInstallmentType);
